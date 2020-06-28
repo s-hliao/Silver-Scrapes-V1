@@ -1,19 +1,19 @@
 #include "main.h"
 
-Motor LRoller(LRollerPort, MOTOR_GEARSET_18, false, MOTOR_ENCODER_DEGREES);
-Motor RRoller(RRollerPort, MOTOR_GEARSET_18, false, MOTOR_ENCODER_DEGREES);
+Motor LRoller(LROLLER, false, AbstractMotor::gearset::green, AbstractMotor::encoderUnits::degrees);
+Motor RRoller(RROLLER, true, AbstractMotor::gearset::green, AbstractMotor::encoderUnits::degrees);
 
 void rollerOp(void*params){
   while(true){
-    if(control.get_digital(DIGITAL_R2)){
-        LRoller.move_velocity(200);
-        RRoller.move_velocity(200);
-    } else if(control.get_digital(DIGITAL_R1)){
-        LRoller.move_velocity(-200);
-        RRoller.move_velocity(-200);
+    if(control.getDigital(ControllerDigital::R2)){
+        LRoller.moveVelocity(200);
+        RRoller.moveVelocity(200);
+    } else if(control.getDigital(ControllerDigital::R1)){
+        LRoller.moveVelocity(-200);
+        RRoller.moveVelocity(-200);
     } else{
-        LRoller.move_velocity(0);
-        RRoller.move_velocity(0);
+        LRoller.moveVelocity(0);
+        RRoller.moveVelocity(0);
     }
   }
 }
