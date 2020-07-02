@@ -15,5 +15,6 @@ void rollerOp(void*params){
         LRoller.moveVelocity(0);
         RRoller.moveVelocity(0);
     }
+    pros::Task::delay(10);
   }
 }

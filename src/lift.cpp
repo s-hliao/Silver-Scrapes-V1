@@ -13,5 +13,6 @@ void liftOp(void*params){
     } else{
       lift.moveVelocity(0);
     }
+    pros::Task::delay(10);
   }
 }
