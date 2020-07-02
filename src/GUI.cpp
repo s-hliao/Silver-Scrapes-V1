@@ -28,43 +28,33 @@ void GUIcreate(void){
 static void auto_create(lv_obj_t * parent)
 {
 
-  th = lv_theme_alien_init(180, NULL);
+  // Create buttons
+  lv_obj_t * btn1 = lv_btn_create(parent, NULL);
+  lv_btn_set_fit(btn1, true, true);
+  lv_obj_set_pos(btn1, 10, 10);
+  lv_btn_set_toggle(btn1, true);
 
-  // Get the size of the usable screen
-  int w = lv_obj_get_width(parent);
-  int h = lv_obj_get_height(parent);
+  lv_obj_t * btn2 = lv_btn_create(parent, NULL);
+  lv_btn_set_fit(btn1, true, true);
+  lv_obj_align(btn2, btn1, LV_ALIGN_OUT_BOTTOM_MID, 0, 0);
+  lv_btn_set_toggle(btn1, false);
 
-  // Create the side container
-  lv_obj_t * cont = lv_cont_create(parent, NULL);
-  lv_obj_set_size(cont, w/2 - 5, h/2 - 5);
-  lv_cont_set_layout(cont, LV_LAYOUT_COL_L);
-  lv_obj_align(cont, NULL, LV_ALIGN_IN_TOP_LEFT, 0, 0);
+  /*Add labels to the buttons*/
+  lv_obj_t * label1 = lv_label_create(btn1, NULL);
+  lv_label_set_text(label1, "Left");
 
-  // Add text and buttons
-  lv_obj_t * cont_txt = lv_label_create(cont, NULL);
-  lv_label_set_text(cont_txt, "Side");
+  lv_obj_t * label2 = lv_label_create(btn2, NULL);
+  lv_label_set_text(label2, "Right");
 
-  lv_obj_t * btn = lv_btn_create(parent, NULL);
-  lv_obj_t * label = lv_label_create(btn, NULL);
-  lv_label_set_text(label ,"Red");
+  // Create button matrix
+  static const char * btnm_map[] = {"CARRY", "\n",
+                                    "Mid", "\n",
+                                    "Short"};
 
-  btn = lv_btn_create(parent, btn);
-  lv_label_set_text(label ,"Blue");
-
-  // Create the mode container
-  cont = lv_cont_create(parent, cont);
-  lv_obj_set_size(cont, w/2 - 5, h/2 - 5);
-  lv_cont_set_layout(cont, LV_LAYOUT_COL_L);
-  lv_obj_align(cont, NULL, LV_ALIGN_IN_TOP_RIGHT, 0, 0);
-
-  // Add the roller
-  lv_obj_t * roller = lv_roller_create(parent, NULL);
-  lv_roller_set_options(roller, "Carry\n"
-                               "Left Mid\n"
-                               "Right Mid\n"
-                               "Left\n"
-                               "Right\n");
-
+  lv_obj_t * btnm1 = lv_btnm_create(parent, NULL);
+  lv_btnm_set_map(btnm1, btnm_map);
+  lv_obj_align(btnm1, btn1, LV_ALIGN_OUT_RIGHT_MID, 30, 0);
+  lv_obj_set_size(btnm1, LV_HOR_RES, LV_VER_RES / 2);
 }
 
 static void odom_create(lv_obj_t * parent)
