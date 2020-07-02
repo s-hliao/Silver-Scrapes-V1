@@ -1,13 +1,14 @@
 #include "GUI.hpp"
 
 
-void GUICreate(void){
-// Create tab view
+void GUIcreate(void){
+
+  th = lv_theme_mono_init(12, NULL);
+
+    lv_theme_set_current(lv_theme_get_mono()); //when removed Spinbox works fine
     tv = lv_tabview_create(lv_scr_act(), NULL);
 
-    // Dark mode
-    LV_THEME_DEFAULT_INIT(lv_theme_get_color_primary(), lv_theme_get_color_secondary(), LV_THEME_MATERIAL_FLAG_DARK,
-        lv_theme_get_font_small(), lv_theme_get_font_normal(), lv_theme_get_font_subtitle(), lv_theme_get_font_title());
+
 
     // Tabs
     t1 = lv_tabview_add_tab(tv, "Auto Select");
@@ -16,7 +17,7 @@ void GUICreate(void){
     t4 = lv_tabview_add_tab(tv, "Temperature");
     t5 = lv_tabview_add_tab(tv, "Debug");
 
-    lv_style_init(&style_box);
+/*    lv_style_init(&style_box);
     lv_style_set_value_align(&style_box, LV_STATE_DEFAULT, LV_ALIGN_OUT_TOP_LEFT);
     lv_style_set_value_ofs_y(&style_box, LV_STATE_DEFAULT, - LV_DPX(10));
     lv_style_set_margin_top(&style_box, LV_STATE_DEFAULT, LV_DPX(30));
@@ -26,5 +27,5 @@ void GUICreate(void){
     odom_create(t2);
     pid_create(t3);
     temp_create(t4);
-    debug_create(t5);
+    debug_create(t5);*/
 }
