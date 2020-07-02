@@ -3,16 +3,16 @@
 
 void GUIcreate(void){
 
-    th = lv_theme_mono_init(12, NULL);
+    th = lv_theme_nemo_init(12, NULL);
 
-    lv_theme_set_current(lv_theme_get_mono());
+    lv_theme_set_current(lv_theme_get_nemo());
     tv = lv_tabview_create(lv_scr_act(), NULL);
 
     // Tabs
-    t1 = lv_tabview_add_tab(tv, "Auto Select");
-    t2 = lv_tabview_add_tab(tv, "Odometry");
-    t3 = lv_tabview_add_tab(tv, "PID Tuner");
-    t4 = lv_tabview_add_tab(tv, "Temperature");
+    t1 = lv_tabview_add_tab(tv, "Auto");
+    t2 = lv_tabview_add_tab(tv, "Odom");
+    t3 = lv_tabview_add_tab(tv, "PID");
+    t4 = lv_tabview_add_tab(tv, "Temp");
     t5 = lv_tabview_add_tab(tv, "Debug");
 
     // Create tabs
@@ -28,14 +28,14 @@ static void auto_create(lv_obj_t * parent)
   lv_page_set_scrl_layout(parent, LV_LAYOUT_PRETTY);
 
   lv_obj_t * btn = lv_btn_create(parent, NULL);
-  lv_btn_set_fit(btn, 0, 1);
-  lv_obj_set_width(btn, 0);
+  lv_btn_set_fit(btn, true, true);
+  //lv_obj_set_width(btn, 0);
   lv_obj_t * label = lv_label_create(btn, NULL);
   lv_label_set_text(label ,"Button");
-  
+
 }
 
-static void controls_create(lv_obj_t * parent)
+static void odom_create(lv_obj_t * parent)
 {
   lv_page_set_scrl_layout(parent, LV_LAYOUT_PRETTY);
 }
