@@ -3,13 +3,13 @@
 
 void GUIcreate(void){
 
-    th = lv_theme_nemo_init(12, NULL);
+    th = lv_theme_alien_init(180, NULL);
 
-    lv_theme_set_current(lv_theme_get_nemo());
+    lv_theme_set_current(th);
     tv = lv_tabview_create(lv_scr_act(), NULL);
 
     // Tabs
-    t1 = lv_tabview_add_tab(tv, "Auto");
+    t1 = lv_tabview_add_tab(tv, "Auto ");
     t2 = lv_tabview_add_tab(tv, "Odom");
     t3 = lv_tabview_add_tab(tv, "PID");
     t4 = lv_tabview_add_tab(tv, "Temp");
