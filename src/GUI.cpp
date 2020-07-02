@@ -28,6 +28,8 @@ void GUIcreate(void){
 static void auto_create(lv_obj_t * parent)
 {
 
+  th = lv_theme_alien_init(180, NULL);
+
   // Get the size of the usable screen
   int w = lv_obj_get_width(parent);
   int h = lv_obj_get_height(parent);
@@ -52,8 +54,16 @@ static void auto_create(lv_obj_t * parent)
   // Create the mode container
   cont = lv_cont_create(parent, cont);
   lv_obj_set_size(cont, w/2 - 5, h/2 - 5);
-  lv_cont_set_layout(cont, LV_LAYOUT_COL_M);
+  lv_cont_set_layout(cont, LV_LAYOUT_COL_L);
   lv_obj_align(cont, NULL, LV_ALIGN_IN_TOP_RIGHT, 0, 0);
+
+  // Add the roller
+  lv_obj_t * roller = lv_roller_create(parent, NULL);
+  lv_roller_set_options(roller, "Carry\n"
+                               "Left Mid\n"
+                               "Right Mid\n"
+                               "Left\n"
+                               "Right\n");
 
 }
 
