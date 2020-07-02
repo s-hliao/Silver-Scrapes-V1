@@ -10,6 +10,8 @@
 #include "rollers.hpp"
 #include "lift.hpp"
 
+#include "pros/apix.h"
+
 //#include "pros/api_legacy.h"
 
 #ifdef __cplusplus
