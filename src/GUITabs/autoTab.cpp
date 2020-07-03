@@ -10,9 +10,9 @@ void auto_create(lv_obj_t * parent)
   lv_btn_set_toggle(btn1, true);
 
   lv_obj_t * btn2 = lv_btn_create(parent, NULL);
-  lv_btn_set_fit(btn1, true, true);
+  lv_btn_set_fit(btn2, true, true);
   lv_obj_align(btn2, btn1, LV_ALIGN_OUT_BOTTOM_MID, 0, 0);
-  lv_btn_set_toggle(btn1, false);
+  lv_btn_set_toggle(btn2, false);
 
   /*Add labels to the buttons*/
   lv_obj_t * label1 = lv_label_create(btn1, NULL);
