@@ -1,7 +1,16 @@
 #include "GUI.hpp"
 
+static lv_obj_t * tv;
+static lv_obj_t * t1;
+static lv_obj_t * t2;
+static lv_obj_t * t3;
+static lv_obj_t * t4;
+static lv_obj_t * t5;
+
+static lv_theme_t * th;
 
 void GUIcreate(void){
+    alienInit();
 
     // Set theme
     th = lv_theme_alien_init(180, NULL);
@@ -10,15 +19,11 @@ void GUIcreate(void){
     // Create tab view
     tv = lv_tabview_create(lv_scr_act(), NULL);
 
-    static lv_style_t ind_style;
-    lv_style_copy(&ind_style, lv_tabview_get_style(tv, LV_TABVIEW_STYLE_INDIC));
-    ind_style.body.padding.inner = 1;
-
     static lv_style_t tab_style;
     lv_style_copy(&tab_style, lv_tabview_get_style(tv, LV_TABVIEW_STYLE_BTN_REL));
     tab_style.body.padding.ver = 10;
 
-    lv_tabview_set_style(tv, LV_TABVIEW_STYLE_INDIC, &ind_style);
+    lv_tabview_set_style(tv, LV_TABVIEW_STYLE_INDIC, &tab_indic);
     lv_tabview_set_style(tv, LV_TABVIEW_STYLE_BTN_REL, &tab_style);
 
     lv_tabview_set_sliding(tv, false);
