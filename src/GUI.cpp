@@ -10,14 +10,16 @@ void GUIcreate(void){
     // Create tab view
     tv = lv_tabview_create(lv_scr_act(), NULL);
 
-    lv_style_t * ind_style = lv_tabview_get_style(tv, LV_TABVIEW_STYLE_INDIC);
-    (*ind_style).body.padding.inner = 1;
+    static lv_style_t ind_style;
+    lv_style_copy(&ind_style, lv_tabview_get_style(tv, LV_TABVIEW_STYLE_INDIC));
+    ind_style.body.padding.inner = 1;
 
-    lv_style_t * tab_style = lv_tabview_get_style(tv, LV_TABVIEW_STYLE_BTN_REL);
-    (*tab_style).body.padding.ver = 10;
+    static lv_style_t tab_style;
+    lv_style_copy(&tab_style, lv_tabview_get_style(tv, LV_TABVIEW_STYLE_BTN_REL));
+    tab_style.body.padding.ver = 10;
 
-    lv_tabview_set_style(tv, LV_TABVIEW_STYLE_INDIC, ind_style);
-    lv_tabview_set_style(tv, LV_TABVIEW_STYLE_BTN_REL, tab_style);
+    lv_tabview_set_style(tv, LV_TABVIEW_STYLE_INDIC, &ind_style);
+    lv_tabview_set_style(tv, LV_TABVIEW_STYLE_BTN_REL, &tab_style);
 
     lv_tabview_set_sliding(tv, false);
 
