@@ -9,16 +9,18 @@ void GUIcreate(void){
 
     // Create tab view
     tv = lv_tabview_create(lv_scr_act(), NULL);
-    static lv_style_t ind_style;
-    static lv_style_t tab_style;
 
-/*    lv_style_copy(&ind_style, lv_tabview_get_style(tv, LV_TABVIEW_STYLE_INDIC));
-    ind_style.body.padding.ver = 1;*/
-    lv_style_copy(&tab_style, &*lv_tabview_get_style(tv, LV_TABVIEW_STYLE_BTN_REL));
+    static lv_style_t ind_style;
+    lv_style_copy(&ind_style, lv_tabview_get_style(tv, LV_TABVIEW_STYLE_INDIC));
+    ind_style.body.padding.inner = 1;
+
+    static lv_style_t tab_style;
+    lv_style_copy(&tab_style, lv_tabview_get_style(tv, LV_TABVIEW_STYLE_BTN_REL));
     tab_style.body.padding.ver = 10;
 
-  //  lv_tabview_set_style(tv, LV_TABVIEW_STYLE_INDIC, &ind_style);
+    lv_tabview_set_style(tv, LV_TABVIEW_STYLE_INDIC, &ind_style);
     lv_tabview_set_style(tv, LV_TABVIEW_STYLE_BTN_REL, &tab_style);
+
     lv_tabview_set_sliding(tv, false);
 
     // Add tabs
@@ -27,10 +29,6 @@ void GUIcreate(void){
     t3 = lv_tabview_add_tab(tv, "PID");
     t4 = lv_tabview_add_tab(tv, "Temp");
     t5 = lv_tabview_add_tab(tv, "Debug");
-
-
-
-
 
     // Create tabs
     auto_create(t1);
@@ -51,7 +49,7 @@ static void auto_create(lv_obj_t * parent)
 
   lv_obj_t * btn2 = lv_btn_create(parent, NULL);
   lv_btn_set_fit(btn1, true, true);
-  lv_obj_align(btn2, btn1, LV_ALIGN_OUT_RIGHT_BOTTOM, 0, 0);
+  lv_obj_align(btn2, btn1, LV_ALIGN_OUT_BOTTOM_MID, 0, 0);
   lv_btn_set_toggle(btn1, false);
 
   /*Add labels to the buttons*/
@@ -69,7 +67,7 @@ static void auto_create(lv_obj_t * parent)
   lv_obj_t * btnm1 = lv_btnm_create(parent, NULL);
   lv_btnm_set_map(btnm1, btnm_map);
   lv_obj_set_size(btnm1, 240, 135);
-  lv_obj_align(btnm1, btn1, LV_ALIGN_OUT_RIGHT_MID, 30, 0);
+  lv_obj_align(btnm1, btn1, LV_ALIGN_OUT_RIGHT_BOTTOM, 30, 0);
 
 }
 
