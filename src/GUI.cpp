@@ -9,6 +9,9 @@ void GUIcreate(void){
 
     // Create tab view
     tv = lv_tabview_create(lv_scr_act(), NULL);
+    lv_style_copy(&lv_style_btn_pr, &lv_style_btn_pr);
+    lv_tabview_set_style(tv, LV_TABVIEW_STYLE_BTN_REL, &lv_style_btn_pr);
+    lv_tabview_set_sliding(tv, false);
 
     // Add tabs
     t1 = lv_tabview_add_tab(tv, "Auto ");
