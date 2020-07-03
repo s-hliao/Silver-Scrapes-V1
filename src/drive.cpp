@@ -18,8 +18,8 @@ void driveOp(void*params){
     RFDrive.moveVelocity(RPow);
     RBDrive.moveVelocity(RPow);
 
-    printf("%d", autoSide);
-    printf("%d", autoMode);
+    printf("%d \n", autoSide);
+    printf("%d \n", autoMode);
 
     pros::Task::delay(500);
   }
