@@ -40,9 +40,9 @@ void auto_create(lv_obj_t * parent)
 static lv_res_t left_click(lv_obj_t * btn){
   if (!lv_btn_get_state(btn1)) {
     autoSide = LEFT;
-    lv_btn_set_state(btn1, true);
     lv_btn_set_state(btn2, false);
   }
+  lv_btn_set_state(btn1, true);
   return LV_RES_OK;
 }
 
@@ -50,7 +50,7 @@ static lv_res_t right_click(lv_obj_t * btn){
   if (!lv_btn_get_state(btn2)) {
     autoSide = RIGHT;
     lv_btn_set_state(btn2, true);
-    lv_btn_set_state(btn1, false);
   }
+  lv_btn_set_state(btn1, false);
   return LV_RES_OK;
 }
