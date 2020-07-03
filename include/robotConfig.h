@@ -24,4 +24,14 @@
 extern Controller control;
 extern Potentiometer liftPot;
 
+enum Side : int16_t {
+  LEFT,
+  RIGHT
+};
+
+#ifndef auto_side
+Side auto_side;
+#endif
+
+
 #endif
