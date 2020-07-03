@@ -4,18 +4,14 @@
 #include "main.h"
 
 void GUIcreate(void);
-static void auto_create(lv_obj_t * parent);
-static void odom_create(lv_obj_t * parent);
-static void pid_create(lv_obj_t * parent);
-static void temp_create(lv_obj_t * parent);
-static void debug_create(lv_obj_t * parent);
 
-static void alienInit();
+void auto_create(lv_obj_t * parent);
+void odom_create(lv_obj_t * parent);
+void pid_create(lv_obj_t * parent);
+void temp_create(lv_obj_t * parent);
+void debug_create(lv_obj_t * parent);
 
-static lv_style_t def;
-static lv_style_t tab_indic;
-
-
+void alienInit();
 
 
 #endif

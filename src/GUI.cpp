@@ -9,6 +9,46 @@ static lv_obj_t * t5;
 
 static lv_theme_t * th;
 
+static lv_style_t def;
+static lv_style_t tab_indic;
+
+void alienInit(){
+  lv_style_copy(&def, &lv_style_plain);
+  def.body.opa = LV_OPA_COVER;
+  def.glass = 0;
+
+  def.body.empty = 0;
+  def.body.main_color = LV_COLOR_HEX3(0x222);
+  def.body.grad_color = LV_COLOR_HEX3(0x222);
+  def.body.radius = 0;
+  def.body.padding.hor = LV_DPI / 8;
+  def.body.padding.ver = LV_DPI / 8;
+  def.body.padding.inner = LV_DPI / 8;
+  def.body.border.color = LV_COLOR_SILVER;
+  def.body.border.width = 1;
+  def.body.border.opa = LV_OPA_COVER;
+  def.body.shadow.color = LV_COLOR_SILVER;
+  def.body.shadow.width = 0;
+  def.body.shadow.type = LV_SHADOW_FULL;
+
+  def.text.color = LV_COLOR_HEX3(0xDDD);
+  def.text.font = &lv_font_dejavu_10;
+  def.text.letter_space = 1;
+  def.text.line_space = 2;
+
+  def.image.color = LV_COLOR_HEX3(0xDDD);
+  def.image.intense = LV_OPA_TRANSP;
+
+  def.line.color = LV_COLOR_HEX3(0xDDD);
+  def.line.width = 1;
+
+lv_style_copy(&tab_indic, &def);
+  tab_indic.body.border.width = 0;
+  tab_indic.body.main_color = lv_color_hsv_to_rgb(180, 80, 87);
+  tab_indic.body.grad_color = lv_color_hsv_to_rgb(180, 80, 87);
+  tab_indic.body.padding.inner = 5;
+}
+
 void GUIcreate(void){
     alienInit();
 
@@ -41,57 +81,4 @@ void GUIcreate(void){
     pid_create(t3);
     temp_create(t4);
     debug_create(t5);
-}
-
-static void auto_create(lv_obj_t * parent)
-{
-
-  // Create buttons
-  lv_obj_t * btn1 = lv_btn_create(parent, NULL);
-  lv_btn_set_fit(btn1, true, true);
-  lv_obj_set_pos(btn1, 10, 10);
-  lv_btn_set_toggle(btn1, true);
-
-  lv_obj_t * btn2 = lv_btn_create(parent, NULL);
-  lv_btn_set_fit(btn1, true, true);
-  lv_obj_align(btn2, btn1, LV_ALIGN_OUT_BOTTOM_MID, 0, 0);
-  lv_btn_set_toggle(btn1, false);
-
-  /*Add labels to the buttons*/
-  lv_obj_t * label1 = lv_label_create(btn1, NULL);
-  lv_label_set_text(label1, "Left");
-
-  lv_obj_t * label2 = lv_label_create(btn2, NULL);
-  lv_label_set_text(label2, "Right");
-
-  // Create button matrix
-  static const char * btnm_map[] = {"CARRY", "\n",
-                                    "Mid", "\n",
-                                    "Short", ""};
-
-  lv_obj_t * btnm1 = lv_btnm_create(parent, NULL);
-  lv_btnm_set_map(btnm1, btnm_map);
-  lv_obj_set_size(btnm1, 240, 135);
-  lv_obj_align(btnm1, btn1, LV_ALIGN_OUT_RIGHT_BOTTOM, 30, 0);
-
-}
-
-static void odom_create(lv_obj_t * parent)
-{
-
-}
-
-static void pid_create(lv_obj_t * parent)
-{
-  lv_page_set_scrl_layout(parent, LV_LAYOUT_GRID);
-}
-
-static void temp_create(lv_obj_t * parent)
-{
-  lv_page_set_scrl_layout(parent, LV_LAYOUT_PRETTY);
-}
-
-static void debug_create(lv_obj_t * parent)
-{
-  lv_page_set_scrl_layout(parent, LV_LAYOUT_PRETTY);
 }
