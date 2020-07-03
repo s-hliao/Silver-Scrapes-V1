@@ -29,9 +29,7 @@ enum Side : int16_t {
   RIGHT
 };
 
-#ifndef auto_side
-Side auto_side;
-#endif
+extern Side autoSide;
 
 
 #endif

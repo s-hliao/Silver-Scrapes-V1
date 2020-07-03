@@ -1,10 +1,9 @@
 #include "GUI.hpp"
 
+Side autoSide = LEFT;
+
 void auto_create(lv_obj_t * parent)
 {
-
-  auto_side = LEFT;
-
   // Create buttons
   btn1 = lv_btn_create(parent, NULL);
   lv_btn_set_fit(btn1, true, true);
@@ -39,14 +38,14 @@ void auto_create(lv_obj_t * parent)
 }
 
 static lv_res_t left_click(lv_obj_t * btn){
-  auto_side = LEFT;
+  autoSide = LEFT;
   lv_btn_set_toggle(btn1, true);
   lv_btn_set_toggle(btn2, false);
   return LV_RES_OK;
 }
 
 static lv_res_t right_click(lv_obj_t * btn){
-  auto_side = RIGHT;
+  autoSide = RIGHT;
   lv_btn_set_toggle(btn2, true);
   lv_btn_set_toggle(btn1, false);
   return LV_RES_OK;
