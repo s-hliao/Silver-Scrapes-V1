@@ -33,8 +33,8 @@ void auto_create(lv_obj_t * parent)
   lv_obj_t * btnm1 = lv_btnm_create(parent, NULL);
   lv_btnm_set_map(btnm1, btnm_map);
   lv_obj_set_size(btnm1, 240, 135);
-  lv_obj_align(btnm1, btn1, LV_ALIGN_OUT_RIGHT_BOTTOM, 30, 0);
-
+  lv_obj_align(btnm1, btn1, LV_ALIGN_OUT_RIGHT_TOP, 30, 0);
+  lv_btnm_set_toggle(btnm1, true, 0);
 }
 
 static lv_res_t left_click(lv_obj_t * btn){
