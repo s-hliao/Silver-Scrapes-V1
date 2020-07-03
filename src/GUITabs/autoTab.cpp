@@ -65,9 +65,9 @@ static lv_res_t right_click(lv_obj_t * btn){
 
 static lv_res_t btnm_action(lv_obj_t * btnm, const char *txt)
 {
-  if (strcmp(txt, "CARRY") == true) {
+  if (strcmp(txt, "CARRY") ==0) {
     autoMode = CARRY;
-  } else if (strcmp(txt, "Mid") == true) {
+  } else if (strcmp(txt, "Mid") == 0) {
     autoMode = MID;
   } else {
     autoMode = SHORT;
