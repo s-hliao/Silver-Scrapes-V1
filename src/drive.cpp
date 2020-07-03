@@ -5,11 +5,10 @@ Motor LBDrive(LBDRIVE, false, AbstractMotor::gearset::green, AbstractMotor::enco
 Motor RBDrive(RBDRIVE, true, AbstractMotor::gearset::green, AbstractMotor::encoderUnits::degrees);
 
 void driveOp(void*params){
- LFDrive.setBrakeMode(AbstractMotor::brakeMode::brake);
+  LFDrive.setBrakeMode(AbstractMotor::brakeMode::brake);
   RFDrive.setBrakeMode(AbstractMotor::brakeMode::brake);
   LBDrive.setBrakeMode(AbstractMotor::brakeMode::brake);
   RBDrive.setBrakeMode(AbstractMotor::brakeMode::brake);
-  printf("%d", autoSide);
 
   while(true){
     int LPow = control.getAnalog(ControllerAnalog::leftY)*600/127;
@@ -19,6 +18,9 @@ void driveOp(void*params){
     RFDrive.moveVelocity(RPow);
     RBDrive.moveVelocity(RPow);
 
-    pros::Task::delay(10);
+    printf("%d", autoSide);
+    printf("%d", autoMode);
+
+    pros::Task::delay(500);
   }
 }

@@ -1,6 +1,7 @@
 #include "GUI.hpp"
 
-int autoSide = LEFT;
+Side autoSide = LEFT;
+Mode autoMode = CARRY;
 
 void auto_create(lv_obj_t * parent)
 {
@@ -35,14 +36,14 @@ void auto_create(lv_obj_t * parent)
   lv_obj_set_size(btnm1, 240, 135);
   lv_obj_align(btnm1, btn1, LV_ALIGN_OUT_RIGHT_TOP, 30, 0);
   lv_btnm_set_toggle(btnm1, true, 0);
+  lv_btnm_set_action(btnm1, btnm_action);
 }
 
 static lv_res_t left_click(lv_obj_t * btn){
   autoSide = LEFT;
-  if (!lv_btn_get_state(btn1)) {
-
+  if (lv_btn_get_state(btn1) == true)
     lv_btn_set_state(btn1, true);
-  } else
+  else
     lv_btn_set_state(btn2, false);
 
   return LV_RES_OK;
@@ -50,12 +51,23 @@ static lv_res_t left_click(lv_obj_t * btn){
 
 static lv_res_t right_click(lv_obj_t * btn){
   autoSide = RIGHT;
-  if (!lv_btn_get_state(btn2)) {
-
+  if (lv_btn_get_state(btn2) == true)
     lv_btn_set_state(btn2, true);
-  } else
+  else
     lv_btn_set_state(btn1, false);
 
+  return LV_RES_OK;
+}
+
+static lv_res_t btnm_action(lv_obj_t * btnm, const char *txt)
+{
+  if (strcmp(txt, "CARRY") == true) {
+    autoMode = CARRY;
+  } else if (strcmp(txt, "Mid") == true) {
+    autoMode = MID;
+  } else {
+    autoMode = SHORT;
+  }
 
   return LV_RES_OK;
 }

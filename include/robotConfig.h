@@ -18,7 +18,7 @@
 
 #define LIFTPOT 'H'
 
- using namespace okapi;
+using namespace okapi;
 
 //global variables
 extern Controller control;
@@ -29,7 +29,13 @@ enum Side : int16_t {
   RIGHT
 };
 
-extern int autoSide;
+enum Mode : int16_t {
+  CARRY,
+  MID,
+  SHORT
+};
 
+extern Side autoSide;
+extern Mode autoMode;
 
 #endif
