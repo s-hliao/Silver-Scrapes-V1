@@ -9,12 +9,17 @@ void GUIcreate(void){
 
     // Create tab view
     tv = lv_tabview_create(lv_scr_act(), NULL);
-    lv_style_copy(&lv_style_btn_pr, &lv_style_btn_pr);
-    lv_tabview_set_style(tv, LV_TABVIEW_STYLE_BTN_REL, &lv_style_btn_pr);
+    lv_style_t ind_style = *lv_tabview_get_style(tv, LV_TABVIEW_STYLE_INDIC);
+    ind_style.body.padding.ver = 1;
+    lv_style_t tab_style = *lv_tabview_get_style(tv, LV_TABVIEW_STYLE_BTN_BG);
+    tab_style.body.padding.ver = 10;
+
+    lv_tabview_set_style(tv, LV_TABVIEW_STYLE_INDIC, &ind_style);
+    lv_tabview_set_style(tv, LV_TABVIEW_STYLE_BTN_BG, &tab_style);
     lv_tabview_set_sliding(tv, false);
 
     // Add tabs
-    t1 = lv_tabview_add_tab(tv, "Auto ");
+    t1 = lv_tabview_add_tab(tv, "Auto");
     t2 = lv_tabview_add_tab(tv, "Odom");
     t3 = lv_tabview_add_tab(tv, "PID");
     t4 = lv_tabview_add_tab(tv, "Temp");
@@ -39,7 +44,7 @@ static void auto_create(lv_obj_t * parent)
 
   lv_obj_t * btn2 = lv_btn_create(parent, NULL);
   lv_btn_set_fit(btn1, true, true);
-  lv_obj_align(btn2, btn1, LV_ALIGN_OUT_BOTTOM_MID, 0, 0);
+  lv_obj_align(btn2, btn1, LV_ALIGN_OUT_RIGHT_BOTTOM, 0, 0);
   lv_btn_set_toggle(btn1, false);
 
   /*Add labels to the buttons*/
