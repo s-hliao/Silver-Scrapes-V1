@@ -7,6 +7,11 @@
 #include "api.h"
 #include "okapi/api.hpp"
 
+//global variables
+using namespace okapi;
+extern Controller control;
+extern Potentiometer liftPot;
+
 //ports
 #define LFDRIVE 55
 #define LBDRIVE 66
@@ -17,25 +22,5 @@
 #define LIFT 22
 
 #define LIFTPOT 'H'
-
-using namespace okapi;
-
-//global variables
-extern Controller control;
-extern Potentiometer liftPot;
-
-enum Side : int16_t {
-  LEFT,
-  RIGHT
-};
-
-enum Mode : int16_t {
-  CARRY,
-  MID,
-  SHORT
-};
-
-extern Side autoSide;
-extern Mode autoMode;
 
 #endif

@@ -1,10 +1,14 @@
 #include "GUI.hpp"
+#include "enums.h"
 
-Side autoSide = LEFT;
-Mode autoMode = CARRY;
+Side autoSide;
+Mode autoMode;
 
 void auto_create(lv_obj_t * parent)
 {
+  autoSide = LEFT;
+  autoMode = CARRY;
+
   // Create buttons
   btn1 = lv_btn_create(parent, NULL);
   lv_btn_set_fit(btn1, true, true);

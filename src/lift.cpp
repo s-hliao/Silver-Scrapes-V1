@@ -1,4 +1,5 @@
 #include "main.h"
+#include "robotState.h"
 
 Motor lift(LIFT, true, AbstractMotor::gearset::green, AbstractMotor::encoderUnits::degrees);
 Potentiometer LiftPot(LIFTPOT);

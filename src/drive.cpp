@@ -1,4 +1,6 @@
 #include "main.h"
+#include "robotState.h"
+
 Motor LFDrive(LFDRIVE, false, AbstractMotor::gearset::green, AbstractMotor::encoderUnits::degrees);
 Motor RFDrive(RFDRIVE, true, AbstractMotor::gearset::green, AbstractMotor::encoderUnits::degrees);
 Motor LBDrive(LBDRIVE, false, AbstractMotor::gearset::green, AbstractMotor::encoderUnits::degrees);
