@@ -3,11 +3,13 @@
 
 Side autoSide;
 Mode autoMode;
+bool autoRun;
 
 void auto_create(lv_obj_t * parent)
 {
   autoSide = LEFT;
   autoMode = CARRY;
+  autoRun = false;
 
   // Create buttons
   btn1 = lv_btn_create(parent, NULL);
@@ -35,10 +37,17 @@ void auto_create(lv_obj_t * parent)
 
   lv_obj_t * btnm1 = lv_btnm_create(parent, NULL);
   lv_btnm_set_map(btnm1, btnm_map);
-  lv_obj_set_size(btnm1, 240, 135);
-  lv_obj_align(btnm1, btn1, LV_ALIGN_OUT_RIGHT_TOP, 30, 0);
+  lv_obj_set_size(btnm1, 135, 135);
+  lv_obj_align(btnm1, btn1, LV_ALIGN_OUT_RIGHT_TOP, 30, 7);
   lv_btnm_set_toggle(btnm1, true, 0);
   lv_btnm_set_action(btnm1, btnm_action);
+
+  // Run auto checkbox
+  lv_obj_t * cb;
+  cb = lv_cb_create(parent, NULL);
+  lv_obj_align(cb, btnm1, LV_ALIGN_OUT_RIGHT_MID, 30, 0);
+  lv_cb_set_text(cb, "Run Auto");
+  lv_cb_set_action(cb, cb_release_action);
 }
 
 static lv_res_t left_click(lv_obj_t * btn){
@@ -69,6 +78,19 @@ static lv_res_t btnm_action(lv_obj_t * btnm, const char *txt)
     autoMode = MID;
   } else {
     autoMode = SHORT;
+  }
+
+  return LV_RES_OK;
+}
+
+static lv_res_t cb_release_action(lv_obj_t * cb) {
+
+  if (lv_cb_is_checked(cb) == true) {
+    lv_cb_set_text(cb, "Press <A>");
+    autoRun = true;
+  } else {
+    lv_cb_set_text(cb, "Run Auto");
+    autoRun = false;
   }
 
   return LV_RES_OK;

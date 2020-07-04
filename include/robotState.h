@@ -5,5 +5,6 @@
 
 extern Side autoSide;
 extern Mode autoMode;
+extern bool autoRun;
 
 #endif
