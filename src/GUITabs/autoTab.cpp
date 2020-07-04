@@ -13,14 +13,12 @@ void auto_create(lv_obj_t * parent)
   btn1 = lv_btn_create(parent, NULL);
   lv_btn_set_fit(btn1, true, true);
   lv_obj_set_pos(btn1, 10, 10);
-  lv_btn_set_toggle(btn1, true);
   lv_btn_set_state(btn1, true);
   lv_btn_set_action(btn1, LV_BTN_ACTION_CLICK, left_click);
 
   btn2 = lv_btn_create(parent, NULL);
   lv_btn_set_fit(btn2, true, true);
   lv_obj_align(btn2, btn1, LV_ALIGN_OUT_BOTTOM_MID, 0, 0);
-  lv_btn_set_toggle(btn2, true);
   lv_btn_set_action(btn2, LV_BTN_ACTION_CLICK, right_click);
 
   /*Add labels to the buttons*/
@@ -44,21 +42,21 @@ void auto_create(lv_obj_t * parent)
 }
 
 static lv_res_t left_click(lv_obj_t * btn){
-  autoSide = LEFT;
-  if (lv_btn_get_state(btn1) == true)
+  if (lv_btn_get_state(btn1) == false) {
+    autoSide = LEFT;
     lv_btn_set_state(btn1, true);
-  else
     lv_btn_set_state(btn2, false);
+  }
 
   return LV_RES_OK;
 }
 
 static lv_res_t right_click(lv_obj_t * btn){
-  autoSide = RIGHT;
-  if (lv_btn_get_state(btn2) == true)
+    if (lv_btn_get_state(btn2) == false) {
+    autoSide = RIGHT;
     lv_btn_set_state(btn2, true);
-  else
     lv_btn_set_state(btn1, false);
+  }
 
   return LV_RES_OK;
 }
