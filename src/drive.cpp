@@ -20,5 +20,6 @@ void driveOp(void*params){
     RFDrive.moveVelocity(RPow);
     RBDrive.moveVelocity(RPow);
 
+    pros::Task::delay(10);
   }
 }
