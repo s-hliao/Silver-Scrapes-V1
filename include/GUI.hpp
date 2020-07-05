@@ -4,12 +4,16 @@
 #include "main.h"
 
 void GUIcreate(void);
+void GUIupdate(void*params);
 
 void auto_create(lv_obj_t * parent);
 void odom_create(lv_obj_t * parent);
 void pid_create(lv_obj_t * parent);
 void temp_create(lv_obj_t * parent);
 void debug_create(lv_obj_t * parent);
+
+void odomUpdate();
+void tempUpdate();
 
 void alienInit();
 

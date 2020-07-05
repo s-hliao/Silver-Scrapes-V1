@@ -82,3 +82,14 @@ void GUIcreate(void){
     temp_create(t4);
     debug_create(t5);
 }
+
+void GUIupdate(void*params){
+  while(true){
+    printDebug(SideText[autoSide]);
+    printDebug(" ");
+    printLnDebug(ModeText[autoMode]);
+
+    pros::Task::delay(2000);
+  }
+
+}
