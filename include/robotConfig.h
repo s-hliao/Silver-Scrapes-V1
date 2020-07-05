@@ -10,17 +10,26 @@
 //global variables
 using namespace okapi;
 extern Controller control;
-extern Potentiometer liftPot;
+extern Motor LFDrive;
+extern Motor LBDrive;
+extern Motor RFDrive;
+extern Motor RBDrive;
+extern Motor LIntake;
+extern Motor RIntake;
+extern Motor roller;
+extern Motor flywheel;
+
 
 //ports
 #define LFDRIVE 55
 #define LBDRIVE 66
 #define RFDRIVE 55
 #define RBDRIVE 11
-#define LROLLER 11
-#define RROLLER 11
-#define LIFT 22
+#define LINTAKE 11
+#define RINTAKE 11
+#define ROLLER 22
+#define FLYWHEEL 15
 
-#define LIFTPOT 'H'
+// #define LIFTPOT 'H'
 
 #endif

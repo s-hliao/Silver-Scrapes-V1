@@ -7,10 +7,12 @@
 #include "robotConfig.h"
 
 #include "drive.hpp"
-#include "rollers.hpp"
-#include "lift.hpp"
+#include "intake.hpp"
+#include "flywheel.hpp"
 
 #include "pros/apix.h"
+
+#include "robotState.h"
 
 //#include "pros/api_legacy.h"
 
