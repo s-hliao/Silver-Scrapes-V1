@@ -20,9 +20,10 @@ void driveOp(void*params){
     RFDrive.moveVelocity(RPow);
     RBDrive.moveVelocity(RPow);
 
-    printf("%d \n", autoSide);
-    printf("%d \n", autoMode);
+    printDebug(SideText[autoSide]);
+    printDebug(" ");
+    printLnDebug(ModeText[autoMode]);
 
-    pros::Task::delay(500);
+    pros::Task::delay(2000);
   }
 }

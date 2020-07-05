@@ -6,10 +6,24 @@ enum Side : int {
   RIGHT
 };
 
+static const char * SideText[] =
+{
+    "LEFT",
+    "RIGHT"
+};
+
 enum Mode : int {
   CARRY,
   MID,
   SHORT
 };
+
+static const char * ModeText[] =
+{
+    "CARRY",
+    "MID",
+    "SHORT"
+};
+
 
 #endif
