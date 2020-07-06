@@ -19,6 +19,8 @@ extern Motor RIntake;
 extern Motor roller;
 extern Motor flywheel;
 
+extern std::shared_ptr<Odometry> odom;
+
 //ports
 #define LFDRIVE 1
 #define LBDRIVE 2
@@ -28,6 +30,13 @@ extern Motor flywheel;
 #define RINTAKE 6
 #define ROLLER 7
 #define FLYWHEEL 8
+
+#define LQUAD1 'A'
+#define LQUAD2 'B'
+#define RQUAD1 'C'
+#define RQUAD2 'D'
+#define MQUAD1 'E'
+#define MQUAD2 'F'
 
 // #define LIFTPOT 'H'
 
