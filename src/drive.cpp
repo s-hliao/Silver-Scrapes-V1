@@ -13,8 +13,10 @@ void driveOp(void*params){
   RBDrive.setBrakeMode(AbstractMotor::brakeMode::brake);
 
   while(true){
-    int LPow = control.getAnalog(ControllerAnalog::leftY)*600/127;
-    int RPow = control.getAnalog(ControllerAnalog::rightY)*600/127;
+
+
+    int LPow = control.getAnalog(ControllerAnalog::leftY)*200/127;
+    int RPow = control.getAnalog(ControllerAnalog::rightY)*200/127;
     LFDrive.moveVelocity(LPow);
     LBDrive.moveVelocity(LPow);
     RFDrive.moveVelocity(RPow);

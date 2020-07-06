@@ -14,7 +14,7 @@ void flywheelOp(void*params){
       flywheel.moveVelocity(-200);
     } else{
       roller.moveVelocity(0);
-      flywheel.moveVelocity(0);
+      flywheel.moveVelocity(25);
     }
     pros::Task::delay(10);
   }
