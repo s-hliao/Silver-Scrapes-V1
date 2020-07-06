@@ -91,9 +91,9 @@ void tempUpdate(){
 
       lv_label_set_text(tempLabels[i], str.c_str());
 
-      if(temp>=30){
+      if(temp>=65){
         lv_label_set_style(tempLabels[i], &red_style);
-      } else if(temp>=22){
+      } else if(temp>=55){
         lv_label_set_style(tempLabels[i], &yellow_style);
       } else{
         lv_label_set_style(tempLabels[i], &reg_style);
