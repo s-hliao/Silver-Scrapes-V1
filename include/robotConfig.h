@@ -19,7 +19,7 @@ extern Motor RIntake;
 extern Motor roller;
 extern Motor flywheel;
 
-extern std::shared_ptr<Odometry> odom;
+
 
 //ports
 #define LFDRIVE 1

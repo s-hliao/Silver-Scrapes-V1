@@ -4,7 +4,6 @@
 #define PROS_USE_SIMPLE_NAMES
 #define PROS_USE_LITERALS
 
-#include "robotConfig.h"
 
 #include "drive.hpp"
 #include "intake.hpp"
@@ -12,7 +11,7 @@
 
 #include "pros/apix.h"
 
-#include "robotState.h"
+#include "odom.hpp"
 
 //#include "pros/api_legacy.h"
 
