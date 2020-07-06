@@ -25,5 +25,14 @@ static const char * ModeText[] =
     "SHORT"
 };
 
+enum PID : int {
+  DP,
+  DI,
+  DD,
+  HP,
+  HI,
+  HD,
+  MULT
+};
 
 #endif

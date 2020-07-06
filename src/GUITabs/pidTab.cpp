@@ -8,6 +8,7 @@ void pid_create(lv_obj_t * parent)
   style.body.padding.hor = 10;
   style.body.padding.ver = 0;
   lv_page_set_style(parent, LV_PAGE_STYLE_BG, &style);
+  lv_page_set_sb_mode(parent, LV_SB_MODE_OFF);
 
   // PID TEXT
   static lv_obj_t * p = lv_label_create(parent, NULL);
@@ -30,22 +31,22 @@ void pid_create(lv_obj_t * parent)
   lv_obj_align(txt1, NULL, LV_ALIGN_IN_TOP_LEFT, 5, 5);
 
   // Distance buttons
-  static lv_obj_t * dp = lv_btn_create(box1, NULL);
-  lv_obj_set_size(dp, 80, 40);
-  lv_obj_align(dp, NULL, LV_ALIGN_IN_TOP_LEFT, 20, 30);
-  static lv_obj_t * dpt = lv_label_create(dp, NULL);
+  static lv_obj_t * dpb = lv_btn_create(box1, NULL);
+  lv_obj_set_size(dpb, 80, 40);
+  lv_obj_align(dpb, NULL, LV_ALIGN_IN_TOP_LEFT, 20, 30);
+  static lv_obj_t * dpt = lv_label_create(dpb, NULL);
   lv_label_set_text(dpt, "0");
 
-  static lv_obj_t * di = lv_btn_create(box1, NULL);
-  lv_obj_set_size(di, 80, 40);
-  lv_obj_align(di, dp, LV_ALIGN_OUT_RIGHT_TOP, 10, 0);
-  static lv_obj_t * dit = lv_label_create(di, NULL);
+  static lv_obj_t * dib = lv_btn_create(box1, NULL);
+  lv_obj_set_size(dib, 80, 40);
+  lv_obj_align(dib, dpb, LV_ALIGN_OUT_RIGHT_TOP, 10, 0);
+  static lv_obj_t * dit = lv_label_create(dib, NULL);
   lv_label_set_text(dit, "0");
 
-  static lv_obj_t * dd = lv_btn_create(box1, NULL);
-  lv_obj_set_size(dd, 80, 40);
-  lv_obj_align(dd, di, LV_ALIGN_OUT_RIGHT_TOP, 10, 0);
-  static lv_obj_t * ddt = lv_label_create(dd, NULL);
+  static lv_obj_t * ddb = lv_btn_create(box1, NULL);
+  lv_obj_set_size(ddb, 80, 40);
+  lv_obj_align(ddb, dib, LV_ALIGN_OUT_RIGHT_TOP, 10, 0);
+  static lv_obj_t * ddt = lv_label_create(ddb, NULL);
   lv_label_set_text(ddt, "0");
 
   // Heading container
@@ -58,22 +59,41 @@ void pid_create(lv_obj_t * parent)
   lv_obj_align(txt2, NULL, LV_ALIGN_IN_TOP_LEFT, 5, 5);
 
   // Heading buttons
-  static lv_obj_t * hp = lv_btn_create(box2, NULL);
-  lv_obj_set_size(hp, 80, 40);
-  lv_obj_align(hp, NULL, LV_ALIGN_IN_TOP_LEFT, 20, 30);
-  static lv_obj_t * hpt = lv_label_create(hp, NULL);
+  static lv_obj_t * hpb = lv_btn_create(box2, NULL);
+  lv_obj_set_size(hpb, 80, 40);
+  lv_obj_align(hpb, NULL, LV_ALIGN_IN_TOP_LEFT, 20, 30);
+  static lv_obj_t * hpt = lv_label_create(hpb, NULL);
   lv_label_set_text(hpt, "0");
 
-  static lv_obj_t * hi = lv_btn_create(box2, NULL);
-  lv_obj_set_size(hi, 80, 40);
-  lv_obj_align(hi, hp, LV_ALIGN_OUT_RIGHT_TOP, 10, 0);
-  static lv_obj_t * hit = lv_label_create(hi, NULL);
+  static lv_obj_t * hib = lv_btn_create(box2, NULL);
+  lv_obj_set_size(hib, 80, 40);
+  lv_obj_align(hib, hpb, LV_ALIGN_OUT_RIGHT_TOP, 10, 0);
+  static lv_obj_t * hit = lv_label_create(hib, NULL);
   lv_label_set_text(hit, "0");
 
-  static lv_obj_t * hd = lv_btn_create(box2, NULL);
-  lv_obj_set_size(hd, 80, 40);
-  lv_obj_align(hd, hi, LV_ALIGN_OUT_RIGHT_TOP, 10, 0);
-  static lv_obj_t * hdt = lv_label_create(hd, NULL);
+  static lv_obj_t * hdb = lv_btn_create(box2, NULL);
+  lv_obj_set_size(hdb, 80, 40);
+  lv_obj_align(hdb, hib, LV_ALIGN_OUT_RIGHT_TOP, 10, 0);
+  static lv_obj_t * hdt = lv_label_create(hdb, NULL);
   lv_label_set_text(hdt, "0");
 
+  // Plus minus buttons
+  static lv_obj_t * btnP = lv_btn_create(parent, NULL);
+  lv_obj_set_size(btnP, 80, 50);
+  lv_obj_align(btnP, box1, LV_ALIGN_OUT_RIGHT_TOP, 45, -20);
+  static lv_obj_t * txt3 = lv_label_create(btnP, NULL);
+  lv_label_set_text(txt3, "+");
+
+  static lv_obj_t * btnM = lv_btn_create(parent, NULL);
+  lv_obj_set_size(btnM, 80, 50);
+  lv_obj_align(btnM, btnP, LV_ALIGN_OUT_BOTTOM_MID, 0, 10);
+  static lv_obj_t * txt4 = lv_label_create(btnM, NULL);
+  lv_label_set_text(txt4, "-");
+
+  // Multiplyer button
+  static lv_obj_t * multb = lv_btn_create(parent, NULL);
+  lv_obj_set_size(multb, 80, 40);
+  lv_obj_align(multb, btnM, LV_ALIGN_OUT_BOTTOM_MID, 0, 20);
+  static lv_obj_t * txt5 = lv_label_create(multb, NULL);
+  lv_label_set_text(txt5, "x1");
 }
