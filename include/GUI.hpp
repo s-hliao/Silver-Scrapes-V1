@@ -17,8 +17,6 @@ void tempUpdate();
 
 void alienInit();
 
-static lv_obj_t * btn1;
-static lv_obj_t * btn2;
 static lv_res_t left_click(lv_obj_t * btn);
 static lv_res_t right_click(lv_obj_t * btn);
 static lv_res_t btnm_action(lv_obj_t * btnm, const char *txt);

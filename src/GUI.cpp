@@ -84,6 +84,7 @@ void GUIcreate(void){
 }
 
 void GUIupdate(void*params){
+  /*
   while(true){
     printDebug(SideText[autoSide]);
     printDebug(" ");
@@ -91,5 +92,5 @@ void GUIupdate(void*params){
 
     pros::Task::delay(2000);
   }
-
+  */
 }

@@ -21,14 +21,14 @@ extern Motor flywheel;
 
 
 //ports
-#define LFDRIVE 55
-#define LBDRIVE 66
-#define RFDRIVE 55
-#define RBDRIVE 11
-#define LINTAKE 11
-#define RINTAKE 11
-#define ROLLER 22
-#define FLYWHEEL 15
+#define LFDRIVE 1
+#define LBDRIVE 2
+#define RFDRIVE 3
+#define RBDRIVE 4
+#define LINTAKE 5
+#define RINTAKE 6
+#define ROLLER 7
+#define FLYWHEEL 8
 
 // #define LIFTPOT 'H'
 
