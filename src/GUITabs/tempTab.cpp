@@ -2,7 +2,7 @@
 
 lv_obj_t * tempLabels[8];
 std::string motorNames[] = {"LFDrive", "LBDrive", "RFDrive", "RBDrive",
-"LIntake", "RIntake", "flywheel", "roller"};
+"LIntake", "RIntake", "Flywheel", "Roller"};
 
 static lv_style_t reg_style;
 static lv_style_t yellow_style;
@@ -11,18 +11,15 @@ static lv_style_t red_style;
 void tempStylesInit(){
   lv_style_copy(&reg_style, lv_label_get_style(tempLabels[0]));
   lv_style_copy(&yellow_style, &reg_style);
-  yellow_style.text.color = LV_COLOR_HEX(0x000000);
   yellow_style.body.main_color = LV_COLOR_HEX(0xffff00);
-  yellow_style.body.opa = 255;
-  yellow_style.body.shadow.color = LV_COLOR_HEX(0xffff00);
+  yellow_style.body.grad_color = LV_COLOR_HEX(0xffff00);
+  yellow_style.text.color = LV_COLOR_HEX3(0x333);
 
   lv_style_copy(&red_style, &yellow_style);
   red_style.body.main_color = LV_COLOR_HEX(0xde1738);
-  red_style.body.opa = 255;
-  red_style.body.shadow.color = LV_COLOR_HEX(0xde1738);
-
+  red_style.body.grad_color = LV_COLOR_HEX(0xde1738);
+  red_style.text.color = LV_COLOR_HEX3(0x333);
 }
-
 
  void temp_create(lv_obj_t * parent)
 {
@@ -86,21 +83,20 @@ void tempUpdate(){
 
     if(temp!=PROS_ERR_F){
 
-
-      std::string str  = motorNames[i]+": "+std::to_string(lround(temp))+" C";
+      std::string str = motorNames[i]+": "+std::to_string(lround(temp))+" C";
 
       lv_label_set_text(tempLabels[i], str.c_str());
 
-      if(temp>=65){
+      if(temp>=60){
         lv_label_set_style(tempLabels[i], &red_style);
-      } else if(temp>=55){
+      } else if(temp>=50){
         lv_label_set_style(tempLabels[i], &yellow_style);
       } else{
         lv_label_set_style(tempLabels[i], &reg_style);
       }
 
     } else{
-      std::string str  = motorNames[i]+": No Temp";
+      std::string str  = motorNames[i]+": No Motor";
       lv_label_set_text(tempLabels[i], str.c_str());
       lv_label_set_style(tempLabels[i], &reg_style);
     }

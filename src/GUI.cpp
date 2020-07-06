@@ -93,8 +93,7 @@ void GUIupdate(void*params){
     printDebug(" ");
     printLnDebug(ModeText[autoMode]);*/
 
-
-    pros::Task::delay(5000);
+    pros::Task::delay(100);
   }
 
 }

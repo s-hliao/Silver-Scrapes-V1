@@ -19,7 +19,6 @@ extern Motor RIntake;
 extern Motor roller;
 extern Motor flywheel;
 
-
 //ports
 #define LFDRIVE 1
 #define LBDRIVE 2
