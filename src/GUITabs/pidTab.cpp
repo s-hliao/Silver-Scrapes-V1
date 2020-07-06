@@ -9,6 +9,14 @@ static lv_obj_t * hib;
 static lv_obj_t * hdb;
 static lv_obj_t * multb;
 
+static lv_obj_t * dpt;
+static lv_obj_t * dit;
+static lv_obj_t * ddt;
+static lv_obj_t * hpt;
+static lv_obj_t * hit;
+static lv_obj_t * hdt;
+static lv_obj_t * multt;
+
 PID selected = DP;
 
 const char* DoubleToString(double value){
@@ -91,6 +99,72 @@ static lv_res_t selectMult(lv_obj_t * btn){
   return LV_RES_OK;
 }
 
+static void updateText() {
+  lv_label_set_text(dpt, DoubleToString(DkP));
+  lv_label_set_text(dit, DoubleToString(DkI));
+  lv_label_set_text(ddt, DoubleToString(DkD));
+  lv_label_set_text(hpt, DoubleToString(HkP));
+  lv_label_set_text(hit, DoubleToString(HkI));
+  lv_label_set_text(hdt, DoubleToString(HkD));
+  lv_label_set_text(multt, DoubleToString(multiplier));
+}
+
+static lv_res_t plus(lv_obj_t * btn){
+  switch (selected) {
+    case DP:
+      DkP += multiplier;
+      break;
+    case DI:
+      DkI += multiplier;
+      break;
+    case DD:
+      DkD += multiplier;
+      break;
+    case HP:
+      HkP += multiplier;
+      break;
+    case HI:
+      HkI += multiplier;
+      break;
+    case HD:
+      HkD += multiplier;
+      break;
+    case MULT:
+      multiplier *= 10;
+      break;
+  }
+  updateText();
+  return LV_RES_OK;
+}
+
+static lv_res_t minus(lv_obj_t * btn){
+  switch (selected) {
+    case DP:
+      DkP -= multiplier;
+      break;
+    case DI:
+      DkI -= multiplier;
+      break;
+    case DD:
+      DkD -= multiplier;
+      break;
+    case HP:
+      HkP -= multiplier;
+      break;
+    case HI:
+      HkI -= multiplier;
+      break;
+    case HD:
+      HkD -= multiplier;
+      break;
+    case MULT:
+      multiplier /= 10;
+      break;
+  }
+  updateText();
+  return LV_RES_OK;
+}
+
 void pid_create(lv_obj_t * parent)
 {
 
@@ -127,19 +201,18 @@ void pid_create(lv_obj_t * parent)
   lv_obj_set_size(dpb, 80, 40);
   lv_obj_align(dpb, NULL, LV_ALIGN_IN_TOP_LEFT, 20, 30);
   lv_btn_set_state(dpb, true);
-  static lv_obj_t * dpt = lv_label_create(dpb, NULL);
-  lv_label_set_text(dpt, DoubleToString(DkP));
+  dpt = lv_label_create(dpb, NULL);
 
   dib = lv_btn_create(box1, NULL);
   lv_obj_set_size(dib, 80, 40);
   lv_obj_align(dib, dpb, LV_ALIGN_OUT_RIGHT_TOP, 10, 0);
-  static lv_obj_t * dit = lv_label_create(dib, NULL);
+  dit = lv_label_create(dib, NULL);
   lv_label_set_text(dit, DoubleToString(DkI));
 
   ddb = lv_btn_create(box1, NULL);
   lv_obj_set_size(ddb, 80, 40);
   lv_obj_align(ddb, dib, LV_ALIGN_OUT_RIGHT_TOP, 10, 0);
-  static lv_obj_t * ddt = lv_label_create(ddb, NULL);
+  ddt = lv_label_create(ddb, NULL);
   lv_label_set_text(ddt, DoubleToString(DkD));
 
   // Heading container
@@ -155,19 +228,19 @@ void pid_create(lv_obj_t * parent)
   hpb = lv_btn_create(box2, NULL);
   lv_obj_set_size(hpb, 80, 40);
   lv_obj_align(hpb, NULL, LV_ALIGN_IN_TOP_LEFT, 20, 30);
-  static lv_obj_t * hpt = lv_label_create(hpb, NULL);
+  hpt = lv_label_create(hpb, NULL);
   lv_label_set_text(hpt, DoubleToString(HkP));
 
   hib = lv_btn_create(box2, NULL);
   lv_obj_set_size(hib, 80, 40);
   lv_obj_align(hib, hpb, LV_ALIGN_OUT_RIGHT_TOP, 10, 0);
-  static lv_obj_t * hit = lv_label_create(hib, NULL);
+  hit = lv_label_create(hib, NULL);
   lv_label_set_text(hit, DoubleToString(HkI));
 
   hdb = lv_btn_create(box2, NULL);
   lv_obj_set_size(hdb, 80, 40);
   lv_obj_align(hdb, hib, LV_ALIGN_OUT_RIGHT_TOP, 10, 0);
-  static lv_obj_t * hdt = lv_label_create(hdb, NULL);
+  hdt = lv_label_create(hdb, NULL);
   lv_label_set_text(hdt, DoubleToString(HkD));
 
   // Plus minus buttons
@@ -187,9 +260,9 @@ void pid_create(lv_obj_t * parent)
   multb = lv_btn_create(parent, NULL);
   lv_obj_set_size(multb, 80, 40);
   lv_obj_align(multb, btnM, LV_ALIGN_OUT_BOTTOM_MID, 0, 20);
-  static lv_obj_t * txt5 = lv_label_create(multb, NULL);
+  multt = lv_label_create(multb, NULL);
   printf(concat("x", DoubleToString(multiplier)));
-  lv_label_set_text(txt5, concat("x", DoubleToString(multiplier)));
+  lv_label_set_text(multt, concat("x", DoubleToString(multiplier)));
 
   // Button actions
   lv_btn_set_action(dpb, LV_BTN_ACTION_CLICK, selectDP);
@@ -199,4 +272,9 @@ void pid_create(lv_obj_t * parent)
   lv_btn_set_action(hib, LV_BTN_ACTION_CLICK, selectHI);
   lv_btn_set_action(hdb, LV_BTN_ACTION_CLICK, selectHD);
   lv_btn_set_action(multb, LV_BTN_ACTION_CLICK, selectMult);
+
+  lv_btn_set_action(btnP, LV_BTN_ACTION_CLICK, plus);
+  lv_btn_set_action(btnM, LV_BTN_ACTION_CLICK, minus);
+
+  updateText();
 }
