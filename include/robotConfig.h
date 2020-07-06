@@ -24,7 +24,7 @@ extern Motor flywheel;
 #define LFDRIVE 1
 #define LBDRIVE 2
 #define RFDRIVE 3
-#define RBDRIVE 4
+#define RBDRIVE 15
 #define LINTAKE 5
 #define RINTAKE 6
 #define ROLLER 7

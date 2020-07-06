@@ -84,13 +84,17 @@ void GUIcreate(void){
 }
 
 void GUIupdate(void*params){
-  /*
-  while(true){
-    printDebug(SideText[autoSide]);
-    printDebug(" ");
-    printLnDebug(ModeText[autoMode]);
 
-    pros::Task::delay(2000);
+  while(true){
+    odomUpdate();
+    tempUpdate();
+
+    /*printDebug(SideText[autoSide]);
+    printDebug(" ");
+    printLnDebug(ModeText[autoMode]);*/
+
+
+    pros::Task::delay(5000);
   }
-  */
+
 }

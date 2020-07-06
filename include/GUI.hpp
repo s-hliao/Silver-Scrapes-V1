@@ -15,6 +15,8 @@ void debug_create(lv_obj_t * parent);
 void odomUpdate();
 void tempUpdate();
 
+void tempStylesInit();
+
 void alienInit();
 
 static lv_res_t left_click(lv_obj_t * btn);
