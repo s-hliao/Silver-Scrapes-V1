@@ -1,16 +1,14 @@
 #include "main.h"
-#include "robotState.h"
+#include "GUITabs/autoTab.hpp"
 
 // Initialize pid values
-double DkP = 1;
-double DkI = 2;
-double DkD = 3;
-double HkP = 4;
-double HkI = 5;
-double HkD = 6;
+double DkP = 0;
+double DkI = 0;
+double DkD = 0;
+double HkP = 0;
+double HkI = 0;
+double HkD = 0;
 double multiplier = 1;
-
-
 
 void autonomous() {
 

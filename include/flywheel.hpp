@@ -1,6 +1,10 @@
-#ifndef _FLYWHEEL_H_
-#define _FLYWHEEL_H_
+#ifndef _FLYWHEEL_HPP_
+#define _FLYWHEEL_HPP_
 
-void flywheelOp(void* params);
+#include "main.h"
+
+void flywheelOp(void*params);
+extern Motor roller;
+extern Motor flywheel;
 
 #endif

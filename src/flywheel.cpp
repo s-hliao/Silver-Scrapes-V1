@@ -1,8 +1,10 @@
 #include "main.h"
+#include "opcontrol.hpp"
+
+using namespace okapi;
 
 Motor roller(ROLLER, true, AbstractMotor::gearset::green, AbstractMotor::encoderUnits::degrees);
 Motor flywheel(FLYWHEEL, true, AbstractMotor::gearset::green, AbstractMotor::encoderUnits::degrees);
-
 
 void flywheelOp(void*params){
   while(true){

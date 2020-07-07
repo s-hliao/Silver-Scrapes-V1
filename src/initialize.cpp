@@ -1,4 +1,6 @@
+#include "main.h"
 #include "GUI.hpp"
+
 void initialize(){
 
   GUIcreate();

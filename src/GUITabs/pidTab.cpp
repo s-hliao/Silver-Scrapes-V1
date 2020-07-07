@@ -1,5 +1,6 @@
-#include "GUI.hpp"
-#include "pid.h"
+#include "main.h"
+#include "autonomous.hpp"
+#include "enums.hpp"
 
 static lv_obj_t * dpb;
 static lv_obj_t * dib;

@@ -1,6 +1,10 @@
-#ifndef _INTAKE_H_
-#define _INTAKE_H_
+#ifndef _INTAKE_HPP_
+#define _INTAKE_HPP_
 
-void intakeOp(void* parameter);
+#include "main.h"
+
+void intakeOp(void*params);
+extern Motor LIntake;
+extern Motor RIntake;
 
 #endif

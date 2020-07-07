@@ -1,8 +1,10 @@
 #include "main.h"
+#include "opcontrol.hpp"
+
+using namespace okapi;
 
 Motor LIntake(LINTAKE, false, AbstractMotor::gearset::green, AbstractMotor::encoderUnits::degrees);
 Motor RIntake(RINTAKE, true, AbstractMotor::gearset::green, AbstractMotor::encoderUnits::degrees);
-
 
 void intakeOp(void*params){
   while(true){

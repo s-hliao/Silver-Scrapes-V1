@@ -1,4 +1,4 @@
-#include "GUI.hpp"
+#include "main.h"
 
 static lv_obj_t * ta1;
 

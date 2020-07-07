@@ -1,4 +1,7 @@
 #include "main.h"
+#include "drive.hpp"
+#include "flywheel.hpp"
+#include "intake.hpp"
 
 Controller control(ControllerId::master);
 

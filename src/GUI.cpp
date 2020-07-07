@@ -1,4 +1,9 @@
-#include "GUI.hpp"
+#include "main.h"
+#include "GUITabs/autoTab.hpp"
+#include "GUITabs/debugTab.hpp"
+#include "GUITabs/odomTab.hpp"
+#include "GUITabs/pidTab.hpp"
+#include "GUITabs/tempTab.hpp"
 
 static lv_obj_t * tv;
 static lv_obj_t * t1;

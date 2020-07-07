@@ -1,5 +1,5 @@
-#ifndef _ENUMS_H_
-#define _ENUMS_H_
+#ifndef _ENUMS_HPP_
+#define _ENUMS_HPP_
 
 enum Side : int {
   LEFT,

@@ -1,4 +1,7 @@
-#include "GUI.hpp"
+#include "main.h"
+#include "drive.hpp"
+#include "flywheel.hpp"
+#include "intake.hpp"
 
 lv_obj_t * tempLabels[8];
 std::string motorNames[] = {"LFDrive", "LBDrive", "RFDrive", "RBDrive",

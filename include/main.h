@@ -4,14 +4,9 @@
 #define PROS_USE_SIMPLE_NAMES
 #define PROS_USE_LITERALS
 
-
-#include "drive.hpp"
-#include "intake.hpp"
-#include "flywheel.hpp"
-
 #include "pros/apix.h"
-
-#include "odom.hpp"
+#include "api.h"
+#include "robotConfig.h"
 
 //#include "pros/api_legacy.h"
 

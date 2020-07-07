@@ -4,7 +4,6 @@
 #define PROS_USE_SIMPLE_NAMES
 #define PROS_USE_LITERALS
 
-#include "api.h"
 #include "okapi/api.hpp"
 
 //global variables
@@ -18,8 +17,6 @@ extern Motor LIntake;
 extern Motor RIntake;
 extern Motor roller;
 extern Motor flywheel;
-
-
 
 //ports
 #define LFDRIVE 1

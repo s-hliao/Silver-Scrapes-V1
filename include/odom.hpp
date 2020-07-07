@@ -1,7 +1,8 @@
-#ifndef _PROS_ODOM_H_
-#define _PROS_ODOM_H_
+#ifndef _ODOM_HPP_
+#define _ODOM_HPP_
 
-#include "robotConfig.h"
+#include "main.h"
+
 extern std::shared_ptr<Odometry> odom;
 
 double wrap(double);

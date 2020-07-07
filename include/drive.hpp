@@ -1,6 +1,12 @@
-#ifndef _DRIVE_H_
-#define _DRIVE_H_
+#ifndef _DRIVE_HPP_
+#define _DRIVE_HPP_
 
-void driveOp(void* parameter);
+#include "main.h"
+
+void driveOp(void*params);
+extern Motor LFDrive;
+extern Motor RFDrive;
+extern Motor LBDrive;
+extern Motor RBDrive;
 
 #endif
